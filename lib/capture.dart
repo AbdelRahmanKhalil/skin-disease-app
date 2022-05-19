@@ -93,6 +93,7 @@ Padding picTaken()
       child: Container(
         alignment: Alignment.center,
         child:  CameraPreview(controller),
+        height: 600 ,
       ),
     );
   }
@@ -102,6 +103,7 @@ Padding picTaken()
       alignment: Alignment.center,
       child: Image.file(
       File(pictureFile!.path),
+      height: 600 ,
     ),)
   );
 }
@@ -137,7 +139,7 @@ Padding picTaken()
               },
               child: const Text('Capture Image'),
             ),
-            ElevatedButton(onPressed:(){submit(File(pictureFile!.path), context);} , child: Text("Submit")),
+            ElevatedButton(onPressed:taken?(){submit(File(pictureFile!.path), context);} : null , child: Text("Submit")),
               ElevatedButton(onPressed:(){pickImage();}
                   , child: Text("Pick Image"))
             ]

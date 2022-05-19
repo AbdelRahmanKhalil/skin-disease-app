@@ -12,7 +12,11 @@ class Result extends StatelessWidget {
 void retrieveArgs(BuildContext context){
   try{
     received_args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    print("printing received args in try (result pge)");
+    print(received_args);
+   
     var result = received_args['result'];
+     print(result);
     var index = result?[0]['index'];
     var label = result?[0]['label'];
     var confidence= result?[0]['confidence'];
