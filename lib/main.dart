@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:skin_disease/capture.dart';
+import 'package:skin_disease/result.dart';
 import 'package:skin_disease/warning.dart';
 import 'package:skin_disease/login.dart';
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/':(context) => Warning(),
-        '/login':(context) => Login()
+        '/result':(context) => Result(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
