@@ -14,12 +14,23 @@ class Warning extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text("DiagnoseMe")),
-        body: Container(
-            child: Column(children: [
+        body:  Container(  width: double.infinity,
+        height: 2000,child: Center(  child: Container(margin: EdgeInsets.all(20.0), height:500,
+            child:  Column(children: [
+              Text("Warning",textAlign: TextAlign.center,style: TextStyle(fontSize: 30, ),),
+              SizedBox(
+                
+                height: 20,
+              ),
           Text(
-            "Warning: this app gives you a speculation that should not be taken as an official diagnosis. You must always go to your physician if you feel unwell ",
+            "This app gives you a speculation that should not be taken as an official diagnosis. You must always visit your physician if you feel unwell or suspect a skin lesion ",
             textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 18),
           ),
+          SizedBox(
+                
+                height: 50,
+              ),
           ElevatedButton(
               onPressed: () async {
                 await availableCameras().then(
@@ -31,7 +42,9 @@ class Warning extends StatelessWidget {
                   ),
                 );
               },
-              child: Text("Okay")),
-        ])));
+              child: Text("Okay",)),
+        ]),
+        
+        ))));
   }
 }
