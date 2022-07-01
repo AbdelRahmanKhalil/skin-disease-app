@@ -29,7 +29,7 @@ class _CaptureScreenState extends State<CaptureScreen>{
   var _result;
   var wait;
   bool _isLoading=false;
-  
+  String buttonString='Capture Image';
   @override
   void initState() {
     super.initState();
@@ -132,12 +132,13 @@ Padding picTaken()
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children:[
               ElevatedButton(
-              onPressed: () async {
+              onPressed: taken?(){ setState(() { taken=false;buttonString="Capture Image" ;picTaken();});} 
+              :() async {
                 pictureFile = await controller.takePicture();
                 taken=true;
-                setState(() {});
+                setState(() {buttonString="Retry";});
               },
-              child: const Text('Capture Image'),
+              child: Text(buttonString),
             ),
             ElevatedButton(onPressed:taken?(){submit(File(pictureFile!.path), context);} : null , child: Text("Submit")),
               ElevatedButton(onPressed:(){pickImage();}
